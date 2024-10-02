@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueSkyMedia</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header with a Hero Section -->
+    <header class="bg-blue-600 text-white py-24">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-5xl font-bold mb-6">Welcome to BlueSkyMedia</h1>
+            <p class="text-lg mb-8">Where creativity meets innovation to bring your media to life.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="{% url 'login' %}" class="bg-white text-blue-600 px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">Login</a>
+                <a href="{% url 'signup' %}" class="bg-white text-blue-600 px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+        <!-- Footer with Social Proof -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-lg mb-6">Trusted by industry leaders</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <img src="client-logo1.png" alt="Client 1" class="mx-auto h-12">
+                <img src="client-logo2.png" alt="Client 2" class="mx-auto h-12">
+                <img src="client-logo3.png" alt="Client 3" class="mx-auto h-12">
+            </div>
+            <p class="mt-6">&copy; 2024 BlueSkyMedia. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

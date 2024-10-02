@@ -1,0 +1,21 @@
+{% extends 'griffin/layout.html' %}
+
+{% block title %}Dashboard - Griffin Admin{% endblock %}
+
+{% block content %}
+    <h1 class="text-3xl font-semibold mb-4">Dashboard</h1>
+    
+    <h2 class="text-2xl font-semibold mb-4">Projects</h2>
+    {% if projects %}
+        <ul class="bg-white shadow-md rounded-lg divide-y divide-gray-200">
+            {% for project in projects %}
+                <li class="p-4 hover:bg-gray-100">
+                    <h3 class="text-lg font-medium">{{ project.name }}</h3>
+                    <p class="text-gray-500">{{ project.description }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-gray-500">No projects available.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'griffin/layout.html' %}
+
+{% block title %}Create Project{% endblock %}
+
+{% block content %}
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-lg mx-auto mt-12">
+        <h1 class="text-3xl font-semibold mb-8 text-center text-gray-800">Create New Project</h1>
+        <form method="post" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+            <div class="grid gap-6">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium py-3 rounded-lg shadow-md transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300">
+                Save Project
+            </button>
+        </form>
+        <div class="mt-6 text-center">
+            <a href="javascript:history.back()" class="text-blue-600 hover:text-blue-700 hover:underline font-medium transition duration-300">Back</a>
+        </div>
+    </div>
+
+    <style>
+        /* Input field styling */
+        input, textarea, select {
+            background-color: #f9fafb; /* Light gray background for visibility */
+            border: 1px solid #d1d5db; /* Subtle gray border */
+            padding: 10px; /* Add padding for spacing */
+            width: 100%; /* Ensure the input field takes up full width */
+            border-radius: 8px; /* Rounded corners for a modern look */
+            transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+        }
+
+        input:focus, textarea:focus, select:focus {
+            background-color: #fff; /* White background on focus */
+            border-color: #60a5fa; /* Blue border on focus */
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.5); /* Add blue glow shadow on focus */
+        }
+
+        /* Button styling */
+        button {
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+{% endblock %}

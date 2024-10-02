@@ -1,0 +1,97 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="main-top mb-6">
+    <p class="text-3xl font-semibold text-gray-700">Available Projects</p>
+</div>
+
+<!-- Loop through each project and display it inside a styled card -->
+{% for project in projects %}
+    <div class="main-body mb-4">
+        <div class="job_card bg-white p-6 rounded-lg shadow-lg flex flex-col md:flex-row justify-between items-center">
+            <!-- Project Icon and Details -->
+            <div class="job_details flex items-center space-x-4">
+                <div class="img text-4xl text-blue-600">
+                    <i class="fas fa-project-diagram"></i> <!-- Generic project icon -->
+                </div>
+                <div class="text">
+                    <h2 class="text-xl font-semibold text-gray-800">{{ project.id }} - {{ project.name }}</h2>
+                    <span class="text-gray-500">{{ project.description }}</span>
+                </div>
+            </div>
+
+            <!-- Button for taking action -->
+            <div class="action mt-4 md:mt-0">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out take-btn"
+                        data-project-id="{{ project.id }}" data-project-name="{{ project.name }}"
+                        data-project-description="{{ project.description }}" data-project-file="{{ project.file }}">
+                    Take Project
+                </button>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+<!-- Modal structure (hidden by default) -->
+<div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+        <!-- Modal content will be injected here via JS -->
+        <div id="modal-content"></div>
+
+        <!-- Return button to close the modal -->
+        <button id="close-modal" class="absolute top-2 right-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out">
+            Return
+        </button>
+    </div>
+</div>
+
+<!-- Script for handling modal and dynamic content injection -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const takeButtons = document.querySelectorAll('.take-btn');
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModal = document.getElementById('close-modal');
+
+        // Function to open the modal and inject content
+        function openModal(projectId, projectName, projectDescription, projectFile) {
+            const projectDescriptionHTML = `
+                <h3 class="text-xl font-semibold mb-2">Project: ${projectName}</h3>
+                <p class="text-gray-700 mb-4">${projectDescription}</p>
+                <a href="${projectFile}" class="text-blue-500 underline mb-4">Download Project File</a>
+                <button class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300 ease-in-out">
+                    Take Project
+                </button>
+            `;
+            modalContent.innerHTML = projectDescriptionHTML;
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Disable background scrolling
+        }
+
+        // Event listener to open modal when a "Take Project" button is clicked
+        takeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const projectId = this.getAttribute('data-project-id');
+                const projectName = this.getAttribute('data-project-name');
+                const projectDescription = this.getAttribute('data-project-description');
+                const projectFile = this.getAttribute('data-project-file');
+                openModal(projectId, projectName, projectDescription, projectFile);
+            });
+        });
+
+        // Event listener to close the modal
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden'); // Re-enable background scrolling
+        });
+
+        // Optional: Close modal when clicking outside the modal content
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+    });
+</script>
+{% endblock %}

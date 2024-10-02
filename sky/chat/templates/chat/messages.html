@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto h-screen">
+        <div class="flex justify-center h-full">
+            <!-- Contacts Section -->
+            <div class="w-full lg:w-1/4 h-full p-4">
+                <div class="bg-white rounded-lg shadow-lg h-full">
+                    <!-- Search Bar -->
+                    <div class="p-4">
+                        <div class="relative">
+                            <input type="text" placeholder="Search..." class="w-full px-4 py-2 text-gray-700 rounded-full border border-gray-300 focus:outline-none">
+                            <span class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Contacts List -->
+                    <div class="overflow-y-auto h-3/4 p-4">
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-4 p-2 bg-blue-100 rounded-lg">
+                                <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" alt="User" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <h4 class="text-gray-700 font-semibold">Don</h4>
+                                    <p class="text-xs text-gray-500">online</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center space-x-4 p-2">
+                                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" alt="User" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <h4 class="text-gray-700 font-semibold">Ron</h4>
+                                    <p class="text-xs text-gray-500">online</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center space-x-4 p-2">
+                                <img src="#" alt="User" class="w-12 h-12 rounded-full">
+                                <div>
+                                    <h4 class="text-gray-700 font-semibold">don</h4>
+                                    <p class="text-xs text-gray-500"> online</p>
+                                </div>
+                            </li>
+                            <!-- Add more contacts here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div class="w-full lg:w-3/4 h-full p-4">
+                <div class="bg-white rounded-lg shadow-lg h-full flex flex-col">
+                    <!-- Chat Header -->
+                    <div class="p-4 border-b border-gray-200 flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" alt="User" class="w-12 h-12 rounded-full">
+                            <div>
+                                <h4 class="text-gray-700 font-semibold">Chat </h4>
+                                <p class="text-xs text-gray-500">10 messages</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <i class="fas fa-video text-gray-600 cursor-pointer"></i>
+                            <i class="fas fa-phone text-gray-600 cursor-pointer"></i>
+                            <i class="fas fa-ellipsis-v text-gray-600 cursor-pointer"></i>
+                        </div>
+                    </div>
+
+                    <!-- Chat Body -->
+                    <div class="flex-1 p-4 overflow-y-auto">
+                        <!-- Received Message -->
+                        <div class="flex mb-4">
+                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="w-10 h-10 rounded-full" alt="User">
+                            <div class="ml-4 bg-gray-100 p-3 rounded-lg">
+                                <p class="text-gray-700">Hi, how are you Samim?</p>
+                                <span class="text-xs text-gray-500">8:40 AM, Today</span>
+                            </div>
+                        </div>
+                        <!-- Sent Message -->
+                        <div class="flex mb-4 justify-end">
+                            <div class="bg-blue-500 text-white p-3 rounded-lg">
+                                <p>Hi Khalid, I'm good thanks. How about you?</p>
+                                <span class="text-xs text-gray-200">8:55 AM, Today</span>
+                            </div>
+                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="w-10 h-10 rounded-full ml-4" alt="User">
+                        </div>
+                    </div>
+
+                    <!-- Chat Footer -->
+                    <div class="p-4 border-t border-gray-200 flex items-center">
+                        <input type="text" placeholder="Type a message..." class="flex-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                        <button class="ml-2 bg-blue-500 text-white px-4 py-2 rounded-lg">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
